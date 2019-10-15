@@ -1,10 +1,10 @@
 {
-  "name": "kjdev/redis-graph",
+  "name": "rolandinsh/redis-graph-php",
   "type": "library",
-  "description": "PHP RedisGraph client",
+  "description": "RedisGraph PHP client",
   "keywords": ["redis"],
   "license": "MIT",
-  "homepage": "https://github.com/kjdev/php-redis-graph",
+  "homepage": "https://github.com/rolandinsh/redis-graph-php",
   "suggest": {
     "ext-redis": "If you want to use redis extension.",
     "predis/predis": "If you want to use predis."
