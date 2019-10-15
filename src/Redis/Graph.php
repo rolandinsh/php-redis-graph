@@ -66,7 +66,9 @@ class Graph
   public function query($command)
   {
     $response = $this->redisCommand('GRAPH.QUERY', $this->name, $command);
-    return new Graph\Query\Result($response);
+    $responser = new Graph\Query\Result($response);
+    return $responser;
+
   }
 
   public function explain($query)

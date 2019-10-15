@@ -88,22 +88,29 @@ class Result
 
   private function parseResult($response)
   {
+
     if (!isset($response[0]) || !is_array($response[0])) {
       return;
     }
-    $this->keys = array_shift($response[0]);
-    foreach ($response[0] as $val) {
-      $this->values[] = array_combine($this->keys, $val);
+
+    $this->keys = array_shift($response);
+
+    if(isset($response[0])){
+      foreach ($response[0] as $val) {
+        $this->values[] = array_combine($this->keys, $val);
+      }
     }
+
   }
 
   private function parseStats($response)
   {
-    if (!isset($response[1]) || !is_array($response[1])) {
+
+    if (!isset($response[0]) || !is_array($response[0])) {
       return;
     }
 
-    foreach ($response[1] as $line) {
+    foreach ($response[0] as $line) {
       if (preg_match('/^Labels added:(.*)$/', $line, $matches)) {
         $this->stats['labels_added'] = (int)(trim($matches[1]));
       } elseif (preg_match('/^Nodes created:(.*)$/', $line, $matches)) {
